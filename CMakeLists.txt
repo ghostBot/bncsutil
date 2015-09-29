@@ -49,7 +49,8 @@ set (SOURCE_CPP
 )
 
 # c files
-set (SOURCE_CC 
+set (SOURCE_CC
+	src/bncsutil/debug.c
 	src/bncsutil/nls.c
 	src/bncsutil/pe.c
 	src/bncsutil/sha1.c
