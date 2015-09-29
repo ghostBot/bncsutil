@@ -66,6 +66,8 @@ SET_SOURCE_FILES_PROPERTIES( ${SOURCE_CC} PROPERTIES LANGUAGE C )
 add_library( bncsutil SHARED ${SOURCE_CPP} ${SOURCE_CC} )
 target_link_libraries( bncsutil ${GMP_LIBRARIES})
 
+set_target_properties( bncsutil PROPERTIES VERSION 1.3.4 SOVERSION 1 )
+
 # install
 install( TARGETS bncsutil DESTINATION lib )
 install( FILES ${HEADERS} DESTINATION include/bncsutil )
