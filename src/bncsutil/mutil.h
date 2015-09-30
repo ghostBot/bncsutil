@@ -35,6 +35,13 @@
 #include "mutil_types.h"
 #include	 <stdlib.h>	
 
+// functions for converting a string to a 64-bit number.
+#if defined(_MSC_VER)
+#define ATOL64(x) _atoi64(x)
+#else
+#define ATOL64(x) atoll(x)
+#endif
+
 #ifdef _MSC_VER
 #pragma intrinsic(_lrotl,_lrotr)		/* use intrinsic compiler rotations */
 #define	ROL(x,n)	_lrotl((x),(n))			

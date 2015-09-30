@@ -141,7 +141,7 @@ MEXP(void) calcHashBuf(const char* input, unsigned int length, char* result) {
 
 MEXP(void) calcHashBuf(const char* input, size_t length, char* result) {
     int i;
-    unsigned long a, b, c, d, e, g;
+    uint32_t a, b, c, d, e, g;
 	uint32_t* ldata;
     char data[1024];
     memset(data, 0, 1024);

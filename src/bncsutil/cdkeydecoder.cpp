@@ -31,7 +31,8 @@
 #include <cctype> // for isdigit(), isalnum(), and toupper()
 #include <cstring> // for memcpy()
 #include <cstdio> // for sscanf()
- 
+
+
 /**
  * Implementation-specific CD-key hash structure.
  */
@@ -452,7 +453,7 @@ int CDKeyDecoder::processWarCraft3Key() {
         cdkey[i] = toupper(cdkey[i]);
         a = (b + 0x07B5) % W3_BUFLEN;
         b = (a + 0x07B5) % W3_BUFLEN;
-        decode = w3KeyMap[cdkey[i]];
+        decode = w3KeyMap[(int)cdkey[i]];
         table[a] = (decode / 5);
         table[b] = (decode % 5);
     }

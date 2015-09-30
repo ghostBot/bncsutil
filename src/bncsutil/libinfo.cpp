@@ -49,9 +49,8 @@ MEXP(int) bncsutil_getVersionString(char* outBuf) {
     rev = ver;
     if (rev > 99 || rev < 0) return 0;
     
-    printed = std::sprintf(outBuf, "%u.%u.%u", major, minor, rev);
+    printed = std::sprintf(outBuf, "%lu.%lu.%lu", major, minor, rev);
     if (printed < 0) return 0;
     outBuf[8] = '\0';
     return printed;
 }
-    

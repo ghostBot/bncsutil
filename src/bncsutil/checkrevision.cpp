@@ -83,6 +83,7 @@ void initialize_checkrevision_seeds()
 	checkrevision_seeds.push_back(0x11BF6A18);
 	checkrevision_seeds.push_back(0xC57292E6);
 	checkrevision_seeds.push_back(0x7927D27E);
+	checkrevision_seeds.push_back(0x2FEC8733);
 }
 
 MEXP(long) get_mpq_seed(int mpq_number)
@@ -139,7 +140,8 @@ const char* get_basename(const char* file_name)
 MEXP(int) checkRevision(const char* formula, const char* files[], int numFiles,
 	int mpqNumber, unsigned long* checksum)
 {
-	long values[4], ovd[4], ovs1[4], ovs2[4];
+	uint64_t values[4];
+	long ovd[4], ovs1[4], ovs2[4];
 	char ops[4];
 	const char* token;
 	int curFormula = 0;
@@ -188,7 +190,7 @@ MEXP(int) checkRevision(const char* formula, const char* files[], int numFiles,
 			
 			token += 2; // skip over equals sign
 			if (BUCR_ISNUM(*token)) {
-				values[variable] = atol(token);
+				values[variable] = ATOL64(token);
 			} else {
 				if (curFormula > 3) {
 					// more than 4 operations?  bloody hell.

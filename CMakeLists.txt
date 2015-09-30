@@ -10,8 +10,10 @@ INCLUDE (TestBigEndian)
 TEST_BIG_ENDIAN(BIGENDIAN)
 if(BIGENDIAN)
   ADD_DEFINITIONS(-DBIGENDIAN)
+  message(STATUS "Detect BIGENDIAN")
 else(BIGENDIAN)
   ADD_DEFINITIONS(-DLITTLEENDIAN)
+  message(STATUS "Detect LITTLEENDIAN")
 endif(BIGENDIAN)
 
 include_directories( src/ )
@@ -57,8 +59,6 @@ set (SOURCE_CC
 	src/bncsutil/stack.c
 )
 SET_SOURCE_FILES_PROPERTIES( ${SOURCE_CC} PROPERTIES LANGUAGE C )
-
-# TODO debug.c not compiled
 
 # compile options
 #add_compile_options( -Wall -Werror )
